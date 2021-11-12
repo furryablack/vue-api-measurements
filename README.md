@@ -39,7 +39,7 @@ npm install vue-api-measurements
 
 ## Methods
 
-### **useState**
+### **[useState]**
 
 Dedicated state value. **useState\<T\>** gives two parameters:
 - **initValue: T**: default _undefined_.
@@ -67,7 +67,7 @@ const [notes, {dispatch, reset}] = useState<Array<Note[]>([]);
 const add = () => dispatch([...notes.value, createNote()]);
 ```
 
-### **useFlag**
+### **[useFlag]**
 
 On-off switcher. **useFlag** gives one _boolean_ parameter **initValue** (default _false_).  
 
