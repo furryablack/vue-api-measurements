@@ -10,6 +10,7 @@
   },
   "exclude": [
     "**/*.d.ts",
+    "**/*.test.ts",
     "dist",
   ],
   "include": ["src"]
