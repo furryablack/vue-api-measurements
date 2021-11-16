@@ -39,7 +39,7 @@ async function main() {
   await directory.write('index.js', createCommonJsIndex(names));
   await directory.write('index.mjs', createMjsIndex(names));
   await directory.write('index.d.ts', createTypingsIndex(names));
-  await directory.write('package.json', JSON.stringify(pkg));
+  await directory.write('package.json', JSON.stringify(pkg, null, 2));
 }
 
 main().catch((error) => {
