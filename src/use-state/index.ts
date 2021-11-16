@@ -11,6 +11,7 @@ export function useState<T>(
 
     {
       dispatch(next: T): void,
+      trigger(): void,
       reset(): void,
     },
 ] {
@@ -20,12 +21,16 @@ export function useState<T>(
     value.value = mapValue(value.value, next);
   };
 
+  const trigger = () => {
+    value.value = mapValue(value.value, value.value);
+  };
+
   const reset = () => {
     value.value = initValue;
   };
 
   return [
     readonly(value),
-    { dispatch, reset },
+    { dispatch, reset, trigger },
   ];
 }

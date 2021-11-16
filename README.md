@@ -53,6 +53,14 @@ Returns **state** and **stateApi**.
 - stateApi.reset()   
 reset **state** to **initValue**
 
+- stateApi.trigger()   
+call **mapFn** where **current** and **next** arguments is equal
+```ts
+const trigger = () => {
+  value.value = mapValue(value.value, value.value);
+};
+```
+
 ```ts
 type Note = {
   id: number,
