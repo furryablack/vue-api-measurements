@@ -50,16 +50,6 @@ Returns **state** and **stateApi**.
 - stateApi.dispatch(value)  
 **value** will be passed to **mapFn** as the second argument _next_
 
-- stateApi.reset()   
-reset **state** to **initValue**
-
-- stateApi.trigger()   
-call **mapFn** where **current** and **next** arguments is equal
-```ts
-const trigger = () => {
-  value.value = mapValue(value.value, value.value);
-};
-```
 
 ```ts
 type Note = {
@@ -74,6 +64,17 @@ function createNote() {
 
 const [notes, {dispatch, reset}] = useState<Array<Note[]>([]);
 const add = () => dispatch([...notes.value, createNote()]);
+```
+
+- stateApi.reset()   
+reset **state** to **initValue**
+
+- stateApi.trigger()   
+call **mapFn** where **current** and **next** arguments is equal
+```ts
+const trigger = () => {
+  value.value = mapValue(value.value, value.value);
+};
 ```
 
 ### **[useFlag]**
