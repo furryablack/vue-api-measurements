@@ -2,7 +2,6 @@ module.exports = (version) => ({
   name: 'vue-api-measurements',
   version: `${version}`,
   description: 'Vue 3 api measurements',
-  type: 'module',
   main: 'vue-api-measurements.cjs.js',
   types: 'index.d.ts',
   module: 'vue-api-measurements.mjs',
