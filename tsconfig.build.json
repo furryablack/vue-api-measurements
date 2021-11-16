@@ -13,5 +13,7 @@
     "**/*.test.ts",
     "dist",
   ],
-  "include": ["src"]
+  "include": [
+    "src"
+  ]
 }

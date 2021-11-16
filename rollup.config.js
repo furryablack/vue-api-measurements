@@ -1,60 +1,58 @@
-const { terser } = require('rollup-plugin-terser');
-const { nodeResolve } = require('@rollup/plugin-node-resolve');
-const commonjs = require('@rollup/plugin-commonjs');
+const { terser } = require("rollup-plugin-terser");
+const { nodeResolve } = require("@rollup/plugin-node-resolve");
+const commonjs = require("@rollup/plugin-commonjs");
 
 const plugins = [
-  nodeResolve({ skip: ['vue'], extensions: ['.js', '.mjs'] }),
-  commonjs({ extensions: ['.js', '.mjs'] }),
+  nodeResolve({ skip: ["vue"], extensions: [".js", ".mjs"] }),
+  commonjs({ extensions: [".js", ".mjs"] }),
   terser({}),
 ];
-
-const input = 'dist/index.js';
 
 // eslint-disable-next-line import/no-anonymous-default-export
 export default [
   {
-    input: 'dist/index.mjs',
-    external: ['vue'],
+    input: "dist/index.mjs",
+    external: ["vue"],
     plugins,
 
     output: {
-      file: './dist/vue-api-measurements.mjs',
-      format: 'es',
+      file: "./dist/vue-api-measurements.mjs",
+      format: "es",
       sourcemap: true,
       externalLiveBindings: false,
     },
   },
 
   {
-    input,
-    external: ['vue'],
+    input: "dist/index.js",
+    external: ["vue"],
     plugins,
 
     output: {
-      file: './dist/vue-api-measurements.cjs.js',
-      format: 'cjs',
+      file: "./dist/vue-api-measurements.cjs.js",
+      format: "cjs",
       freeze: false,
-      exports: 'named',
+      exports: "named",
       sourcemap: true,
       externalLiveBindings: false,
     },
   },
 
   {
-    input,
-    external: ['vue'],
+    input: "dist/index.js",
+    external: ["vue"],
     plugins,
 
     output: {
-      name: 'vue-api-measurements',
-      file: './dist/vue-api-measurements.umd.js',
-      format: 'umd',
-      exports: 'named',
+      name: "vue-api-measurements",
+      file: "./dist/vue-api-measurements.umd.js",
+      format: "umd",
+      exports: "named",
       sourcemap: true,
       freeze: false,
 
       globals: {
-        vue: 'vue',
+        vue: "vue",
       },
     },
   },

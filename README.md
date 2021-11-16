@@ -50,7 +50,8 @@ Returns **state** and **stateApi**.
 - stateApi.dispatch(value)  
 **value** will be passed to **mapFn** as the second argument _next_
 
-- stateApi.reset()
+- stateApi.reset()   
+reset **state** to **initValue**
 
 ```ts
 type Note = {

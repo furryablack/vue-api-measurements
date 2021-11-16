@@ -1,14 +1,16 @@
 module.exports = {
   presets: [
-    '@babel/preset-typescript',
+    "@babel/preset-typescript",
+
     [
-      '@babel/preset-env',
+      "@babel/preset-env",
+
       {
-        modules: process.env.ESMODULES === 'true' ? false : 'cjs',
+        modules: process.env.ESMODULES === "true" ? false : "cjs",
 
         targets: {
-          node: 'current',
-          esmodules: process.env.ESMODULES === 'true',
+          node: "current",
+          esmodules: process.env.ESMODULES === "true",
         },
       },
     ],
