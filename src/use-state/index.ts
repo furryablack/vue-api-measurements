@@ -1,5 +1,5 @@
+import type { Ref, DeepReadonly } from "vue";
 import * as vue from "vue";
-import { Ref, DeepReadonly } from "vue";
 
 const { readonly, ref } = vue;
 
@@ -20,7 +20,9 @@ export function useState<T>(
     value.value = mapValue(value.value, next);
   };
 
-  const reset = () => dispatch(initValue);
+  const reset = () => {
+    value.value = initValue;
+  };
 
   return [
     readonly(value),

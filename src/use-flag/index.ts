@@ -1,4 +1,4 @@
-import { Ref, DeepReadonly } from "vue";
+import type { Ref, DeepReadonly } from "vue";
 import { useState } from "../use-state";
 
 export function useFlag(initFlag = false): [

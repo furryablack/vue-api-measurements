@@ -1,14 +1,37 @@
-import { useState } from './index';
+import { useState } from "./index";
 
-describe('useState', () => {
-  it('Ignore next value in the dispatch(next) with mapFn = (current, next) => current', () => {
-    const mapFn = (current: number) => current + 1;
+describe("useState", () => {
+  it("Creation with signature will equal to signature", () => {
+    const [acc] = useState<number | null>(null);
+    expect(acc.value).toEqual(null);
+  });
 
-    const [acc, {dispatch: inc}] = useState<number>(0, mapFn);
-    inc(1); // 1
-    inc(2); // 2 instead of 3
-    inc(4); // 3 instead of 7
-
+  it("Creation with signature 3 will equal to 3", () => {
+    const [acc] = useState<number>(3);
     expect(acc.value).toEqual(3);
+  });
+
+  it("stateApi.dispatch works as expected", () => {
+    const [acc, { dispatch }] = useState<{ name: string }>({ name: "Furrya" });
+    dispatch({ name: "Black" });
+    expect(acc.value).toEqual({ name: "Black" });
+  });
+
+  it("mapFn: ignore next value with {dispatch}", () => {
+    const [acc, { dispatch }] = useState<number>(1, (current) => current + 1);
+    dispatch(100);
+    expect(acc.value).toEqual(2);
+    dispatch(50);
+    expect(acc.value).toEqual(3);
+  });
+
+  it("stateApi.reset works as expected", () => {
+    const [acc, { dispatch, reset }] = useState<number>(1, (current) => current + 1);
+    dispatch(100);
+    expect(acc.value).toEqual(2);
+    dispatch(50);
+    expect(acc.value).toEqual(3);
+    reset();
+    expect(acc.value).toEqual(1);
   });
 });
