@@ -25,6 +25,6 @@ module.exports = (version) => ({
   homepage: 'https://github.com/furryablack/vue-api-measurements#readme',
 
   peerDependencies: {
-    vue: '^3.0.2',
+    vue: '^3.2.0',
   },
 });

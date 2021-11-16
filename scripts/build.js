@@ -1,22 +1,23 @@
 // eslint-disable-next-line import/no-extraneous-dependencies
 const globby = require('globby');
 
-const {version} = require('../package.json');
 const {
   createCommonJsIndex,
   createTypingsIndex,
   createDistribution,
   createMjsIndex,
   createExportsMap,
+  PKG_NAME,
+  PKG_VERSION,
 } = require('./libraries');
+
 const packageJson = require('./source.package.js');
 
 const packageMarker = 'index.ts';
 
 async function main() {
-  const library = process.env.LIBRARY_NAME ?? 'vue-api-measurements';
-  const pkg = packageJson(version);
-  pkg.name = library;
+  const pkg = packageJson(PKG_VERSION);
+  pkg.name = PKG_NAME;
   const directory = await createDistribution('./dist');
   await directory.copyList('./', ['README.md', 'LICENSE']);
   const found = await globby(`./src/*/${packageMarker}`);

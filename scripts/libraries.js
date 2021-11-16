@@ -3,6 +3,11 @@ const { promisify } = require('util');
 const fs = require('fs');
 const { camelCase } = require('camel-case');
 
+const {
+  version: PKG_VERSION,
+  name: PKG_NAME,
+} = require('../package.json');
+
 const writeFile = promisify(fs.writeFile);
 const copyFile = promisify(fs.copyFile);
 
@@ -62,4 +67,6 @@ module.exports = {
   createTypingsIndex,
   createExportsMap,
   createDistribution,
+  PKG_NAME,
+  PKG_VERSION,
 };
