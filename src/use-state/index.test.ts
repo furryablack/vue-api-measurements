@@ -1,11 +1,6 @@
 import { useState } from "./index";
 
 describe("useState", () => {
-  it("Creation with signature will equal to signature", () => {
-    const [acc] = useState<number | null>(null);
-    expect(acc.value).toEqual(null);
-  });
-
   it("Creation with signature 3 will equal to 3", () => {
     const [acc] = useState<number>(3);
     expect(acc.value).toEqual(3);
