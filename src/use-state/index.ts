@@ -14,7 +14,7 @@ export function useState<T>(
       trigger(): void,
       reset(): void,
     },
-] {
+  ] {
   const value = ref<T>(initValue) as Ref<T>;
 
   const dispatch = (next: T) => {
